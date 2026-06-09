@@ -1,0 +1,535 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,800;1,700&family=Barlow+Condensed:wght@300;400;600;700&family=Bebas+Neue&display=swap');
+
+/* ════════════════════════════════════════════════════
+   SCENE
+═══════════════════════════════════════════════════════ */
+.pkg-scene {
+  position: relative;
+  min-height: 100vh;
+  background: #ede8df;
+  overflow: hidden;
+  font-family: 'Barlow Condensed', sans-serif;
+  padding-bottom: 52px;
+}
+
+/* ── Noise grain ───────────────────────────────────── */
+.bg-noise {
+  position: fixed;
+  inset: 0;
+  opacity: 0.18;
+  pointer-events: none;
+  z-index: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.88' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ════════════════════════════════════════════════════
+   BACKGROUND DECORATIONS
+═══════════════════════════════════════════════════════ */
+.pitch-deco {
+  position: fixed;
+  top: -30px;
+  right: -40px;
+  width: 280px;
+  height: auto;
+  color: rgba(130, 110, 90, 0.18);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.dot-grid {
+  position: fixed;
+  bottom: 62px;
+  left: 6px;
+  width: 100px;
+  height: 100px;
+  color: rgba(130, 110, 90, 0.22);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.dot-grid svg { width: 100%; height: 100%; }
+
+/* ── Floating stars ────────────────────────────────── */
+.fstar {
+  position: fixed;
+  pointer-events: none;
+  font-size: var(--sz, 10px);
+  z-index: 2;
+  animation: fstar-float var(--dur, 6s) ease-in-out infinite alternate;
+}
+
+.fstar.red  { color: #d04040; opacity: 0.65; }
+.fstar.gold { color: #c9a84c; opacity: 0.55; }
+.fstar.dark { color: #3a3030; opacity: 0.28; }
+
+@keyframes fstar-float {
+  from { transform: translate(0, 0) rotate(0deg); }
+  to   { transform: translate(var(--tx, 8px), var(--ty, 8px)) rotate(22deg); }
+}
+
+/* ════════════════════════════════════════════════════
+   SCROLL CONTAINER
+═══════════════════════════════════════════════════════ */
+.pkg-scroll {
+  position: relative;
+  z-index: 10;
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 28px 20px 32px;
+  min-height: calc(100vh - 52px);
+}
+
+/* ════════════════════════════════════════════════════
+   BACK BUTTON
+═══════════════════════════════════════════════════════ */
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: transparent;
+  border: 1px solid rgba(13, 27, 62, 0.18);
+  border-radius: 100px;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 13px;
+  letter-spacing: 2.5px;
+  color: #0d1b3e;
+  padding: 6px 16px 6px 12px;
+  cursor: pointer;
+  margin-bottom: 28px;
+  transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+  animation: fade-up 0.4s ease both 0.05s;
+}
+
+.back-btn:hover {
+  background: #0d1b3e;
+  color: #fff;
+  border-color: #0d1b3e;
+}
+
+.back-arrow {
+  font-size: 15px;
+  line-height: 1;
+}
+
+/* ════════════════════════════════════════════════════
+   PAGE HEADER
+═══════════════════════════════════════════════════════ */
+.pkg-header {
+  text-align: center;
+  margin-bottom: 28px;
+  animation: fade-up 0.5s ease both 0.1s;
+}
+
+/* Mini stamp */
+.pkg-stamp {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 2px solid #0d1b3e;
+  background: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  margin-bottom: 10px;
+  position: relative;
+  box-shadow: 0 3px 14px rgba(13, 27, 62, 0.15);
+  animation: stamp-pop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both 0.1s;
+}
+
+.pkg-stamp::after {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+  border: 1px dashed rgba(13, 27, 62, 0.13);
+}
+
+@keyframes stamp-pop {
+  from { opacity: 0; transform: scale(0.3) rotate(-20deg); }
+  to   { opacity: 1; transform: scale(1) rotate(0); }
+}
+
+.pkg-eyebrow {
+  font-size: 10px;
+  letter-spacing: 4.5px;
+  text-transform: uppercase;
+  color: #9a9080;
+  font-weight: 400;
+  margin-bottom: 6px;
+}
+
+/* "PILIH Paket" headline */
+.pkg-headline {
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.ph-main {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(48px, 10vw, 60px);
+  font-weight: 800;
+  color: #0d1b3e;
+  letter-spacing: 2px;
+}
+
+.ph-em {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(48px, 10vw, 60px);
+  font-weight: 700;
+  font-style: italic;
+  color: #cc1f1f;
+  margin-left: 6px;
+}
+
+.pkg-sub {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #9a9080;
+  font-weight: 400;
+  margin-bottom: 18px;
+}
+
+/* ── Divider ───────────────────────────────────────── */
+.hd {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hd-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(140, 120, 100, 0.4), transparent);
+}
+
+.hd-cross {
+  color: #cc1f1f;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  margin-top: -1px;
+}
+
+/* ════════════════════════════════════════════════════
+   PACKAGE GRID
+═══════════════════════════════════════════════════════ */
+.pkg-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+  margin-top: 24px;
+}
+
+/* ════════════════════════════════════════════════════
+   PACKAGE CARD
+═══════════════════════════════════════════════════════ */
+.pkg-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(200, 185, 165, 0.35);
+  border-radius: 14px;
+  overflow: hidden;
+  cursor: pointer;
+  padding: 24px 22px 22px;
+  transition:
+    transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.22s ease,
+    border-color 0.22s ease;
+  animation: card-in 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow:
+    0 4px 24px rgba(70, 50, 30, 0.09),
+    0 1px 4px rgba(70, 50, 30, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+/* Staggered card entrance */
+.pkg-card:nth-child(1) { animation-delay: 0.18s; }
+.pkg-card:nth-child(2) { animation-delay: 0.26s; }
+.pkg-card:nth-child(3) { animation-delay: 0.34s; }
+.pkg-card:nth-child(4) { animation-delay: 0.42s; }
+
+@keyframes card-in {
+  from { opacity: 0; transform: translateY(24px) scale(0.95); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.pkg-card:hover {
+  transform: translateY(-6px) scale(1.01);
+  border-color: var(--accent);
+  box-shadow:
+    0 16px 48px rgba(70, 50, 30, 0.16),
+    0 4px 12px rgba(70, 50, 30, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+/* ── Accent top bar ────────────────────────────────── */
+.card-accent-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--accent);
+  border-radius: 14px 14px 0 0;
+}
+
+/* ── Big faded tier number watermark ──────────────── */
+.card-num {
+  position: absolute;
+  top: -10px;
+  right: -4px;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 110px;
+  color: var(--accent);
+  opacity: 0.055;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -2px;
+  transition: opacity 0.22s ease;
+}
+
+.pkg-card:hover .card-num {
+  opacity: 0.1;
+}
+
+/* ── Card content ──────────────────────────────────── */
+.card-tier {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--accent);
+  margin-bottom: 5px;
+  position: relative;
+  z-index: 1;
+}
+
+.card-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 800;
+  font-style: italic;
+  color: #0d1b3e;
+  line-height: 1.1;
+  margin-bottom: 18px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Stats row ─────────────────────────────────────── */
+.card-stats {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.stat-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+}
+
+.stat-val {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 36px;
+  color: #0d1b3e;
+  line-height: 1;
+}
+
+.stat-lbl {
+  font-size: 9px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #9a9080;
+  font-weight: 600;
+}
+
+.stat-dot {
+  font-size: 20px;
+  color: rgba(140, 120, 100, 0.35);
+  margin-bottom: 10px;
+  font-weight: 300;
+}
+
+/* ── Horizontal rule ───────────────────────────────── */
+.card-rule {
+  height: 1px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  opacity: 0.25;
+  margin-bottom: 14px;
+  position: relative;
+  z-index: 1;
+  transition: opacity 0.22s ease;
+}
+
+.pkg-card:hover .card-rule {
+  opacity: 0.5;
+}
+
+/* ── Price ─────────────────────────────────────────── */
+.card-price {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 30px;
+  letter-spacing: 1.5px;
+  color: #c9a84c;
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── CTA row ───────────────────────────────────────── */
+.card-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: transparent;
+  border: 1.5px solid rgba(13, 27, 62, 0.18);
+  border-radius: 7px;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 15px;
+  letter-spacing: 2.5px;
+  color: #0d1b3e;
+  padding: 10px 16px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  transition: color 0.22s ease, border-color 0.22s ease;
+}
+
+/* Fill wipe on card hover */
+.card-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.26s ease;
+  z-index: 0;
+}
+
+.pkg-card:hover .card-cta {
+  color: #fff;
+  border-color: var(--accent);
+}
+
+.pkg-card:hover .card-cta::before {
+  transform: scaleX(1);
+}
+
+.cta-ico,
+.cta-arrow {
+  position: relative;
+  z-index: 1;
+}
+
+.cta-ico { font-size: 14px; }
+
+.cta-arrow {
+  font-size: 14px;
+  transition: transform 0.2s ease;
+}
+
+.pkg-card:hover .cta-arrow {
+  transform: translateX(4px);
+}
+
+/* ════════════════════════════════════════════════════
+   LIVE BOTTOM BAR
+═══════════════════════════════════════════════════════ */
+.live-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: #0d1b3e;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 18px;
+  z-index: 100;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #cc1f1f;
+  flex-shrink: 0;
+  animation: live-blink 1.1s ease-in-out infinite;
+}
+
+@keyframes live-blink {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.25; transform: scale(0.7); }
+}
+
+.live-lbl {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 15px;
+  letter-spacing: 3px;
+  color: #c9a84c;
+  flex-shrink: 0;
+}
+
+.live-sep {
+  color: rgba(255, 255, 255, 0.18);
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+.live-scroll {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.live-scroll::before,
+.live-scroll::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 24px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.live-scroll::before { left: 0;  background: linear-gradient(to right, #0d1b3e, transparent); }
+.live-scroll::after  { right: 0; background: linear-gradient(to left, #0d1b3e, transparent); }
+
+.live-ticker {
+  display: inline-block;
+  white-space: nowrap;
+  font-size: 10px;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.42);
+  font-weight: 300;
+  animation: live-tick 26s linear infinite;
+}
+
+@keyframes live-tick {
+  from { transform: translateX(80vw); }
+  to   { transform: translateX(-100%); }
+}
+
+/* ════════════════════════════════════════════════════
+   SHARED UTILITIES
+═══════════════════════════════════════════════════════ */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

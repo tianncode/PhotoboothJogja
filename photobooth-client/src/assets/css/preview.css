@@ -1,0 +1,439 @@
+/* ============================================================
+   STADIUM BOOTH — Preview.css
+   Layout: header · two-column (strip center + info panel) · action bar
+   Colors: cream / navy — same light theme
+   ============================================================ */
+
+/* ── Page shell ─────────────────────────────────────────────── */
+.preview-page {
+  min-height: 100vh;
+  background: var(--cream);
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-body);
+  color: var(--navy);
+  padding: 22px 24px 20px;
+  box-sizing: border-box;
+}
+
+/* ── Header ─────────────────────────────────────────────────── */
+.preview-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.preview-eyebrow {
+  font-family: var(--font-display);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--label);
+  margin: 0 0 2px;
+}
+
+.preview-title {
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--navy);
+  line-height: 1;
+  margin: 0;
+}
+
+.preview-title span { color: var(--green); }
+
+/* "PREVIEW" badge — top right */
+.preview-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 4px;
+  border: 1.5px solid var(--border);
+  background: var(--cream-dark);
+}
+
+.preview-badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--green);
+}
+
+.preview-badge-text {
+  font-family: var(--font-display);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--label-dark);
+}
+
+/* ── Two-column body ─────────────────────────────────────────── */
+.preview-body {
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: 20px;
+  flex: 1;
+  min-height: 0;
+}
+
+/* ── Strip stage (left) ─────────────────────────────────────── */
+.preview-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--cream-dark);
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-card);
+  padding: 28px 20px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle dot-grid texture — gives a "print table" feel */
+.preview-stage::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, var(--border) 1px, transparent 1px);
+  background-size: 18px 18px;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Stage label */
+.preview-stage-label {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-display);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--label);
+  background: var(--cream-mid);
+  border: 1px solid var(--border-light);
+  border-radius: 3px;
+  padding: 2px 10px;
+  white-space: nowrap;
+  z-index: 2;
+}
+
+/* Strip wrapper — lifts the strip above the dot grid */
+.preview-strip-wrapper {
+  position: relative;
+  z-index: 2;
+  filter:
+    drop-shadow(0 4px 16px rgba(26, 32, 53, 0.14))
+    drop-shadow(0 1px 4px rgba(26, 32, 53, 0.08));
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.preview-strip-wrapper:hover {
+  transform: translateY(-3px) scale(1.01);
+  filter:
+    drop-shadow(0 10px 28px rgba(26, 32, 53, 0.18))
+    drop-shadow(0 2px 6px rgba(26, 32, 53, 0.10));
+}
+
+/* Frame name tag below the strip */
+.preview-frame-tag {
+  position: relative;
+  z-index: 2;
+  margin-top: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border: 1.5px solid var(--border);
+  border-radius: 4px;
+  background: var(--cream-mid);
+}
+
+.preview-frame-tag-icon {
+  width: 12px;
+  height: 12px;
+  color: var(--label);
+  flex-shrink: 0;
+}
+
+.preview-frame-tag-name {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--label-dark);
+}
+
+/* ── Info panel (right) ──────────────────────────────────────── */
+.preview-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Section card */
+.preview-card {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-card);
+  overflow: hidden;
+}
+
+.preview-card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border-light);
+  background: var(--cream-mid);
+}
+
+.preview-card-header-icon {
+  width: 14px;
+  height: 14px;
+  color: var(--label);
+}
+
+.preview-card-title {
+  font-family: var(--font-display);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--label-dark);
+}
+
+.preview-card-body {
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Row within card */
+.preview-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.preview-row-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--label);
+  white-space: nowrap;
+  padding-top: 1px;
+}
+
+.preview-row-value {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--navy);
+  text-align: right;
+}
+
+.preview-row-value.price { color: var(--red); }
+
+/* Divider */
+.preview-divider {
+  height: 1px;
+  background: var(--border-light);
+  margin: 2px 0;
+}
+
+/* Photo grid thumbnail row inside the panel */
+.preview-thumb-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+}
+
+.preview-thumb {
+  aspect-ratio: 3 / 4;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 1.5px solid var(--border);
+  background: var(--cream-dark);
+  position: relative;
+}
+
+.preview-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.preview-thumb-num {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--border);
+}
+
+/* Processing spinner state */
+.preview-processing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 20px 0;
+}
+
+.preview-spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--border);
+  border-top-color: var(--navy);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.preview-processing-text {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--label-dark);
+}
+
+/* Spacer pushes action area to bottom */
+.preview-panel-spacer { flex: 1; }
+
+/* ── Action bar (bottom of right panel) ─────────────────────── */
+.preview-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* "Gunakan Foto" — primary */
+.btn-use {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 20px;
+  background: var(--navy);
+  border: none;
+  border-radius: var(--r-btn);
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--white);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.btn-use:hover:not(:disabled) {
+  background: var(--navy-mid);
+  transform: translateY(-1px);
+}
+
+.btn-use:active:not(:disabled) { transform: translateY(0); }
+
+.btn-use:disabled {
+  background: var(--border);
+  color: var(--label);
+  cursor: not-allowed;
+}
+
+.btn-use svg { width: 17px; height: 17px; flex-shrink: 0; }
+
+/* "Ulangi Foto" — destructive ghost */
+.btn-retake {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: transparent;
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-btn);
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--red);
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.btn-retake:hover {
+  border-color: var(--red);
+  background: rgba(198, 40, 40, 0.05);
+}
+
+.btn-retake svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+/* Hint text */
+.preview-hint {
+  text-align: center;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--label);
+  margin-top: 4px;
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 680px) {
+  .preview-body {
+    grid-template-columns: 1fr;
+  }
+
+  .preview-panel {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .preview-card { flex: 1 1 200px; }
+
+  .preview-actions {
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .btn-use, .btn-retake { flex: 1; }
+
+  .preview-panel-spacer { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .preview-strip-wrapper:hover { transform: none; }
+  .preview-spinner { animation: none; }
+  .btn-use:hover:not(:disabled) { transform: none; }
+}

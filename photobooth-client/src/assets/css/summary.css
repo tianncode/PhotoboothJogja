@@ -1,0 +1,484 @@
+/* ============================================================
+   summary.css — Football / WC2026 Theme
+   Photobooth App — Stadium Booth
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;1,800&family=Barlow:wght@400;500&display=swap');
+
+/* ── ROOT ── */
+.wc-scene {
+  background: #f2ede2;
+  min-height: 100vh;
+  font-family: 'Barlow', sans-serif;
+  color: #0d1b3e;
+  position: relative;
+  overflow-x: hidden;
+}
+.bg-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+.bg-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ── HEADER ── */
+.wc-hdr {
+  position: relative;
+  z-index: 20;
+  padding: 18px 24px 14px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(13, 27, 62, 0.1);
+  background: rgba(242, 237, 226, 0.9);
+  backdrop-filter: blur(4px);
+}
+.wc-hdr-overline {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  color: rgba(13, 27, 62, 0.4);
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+.wc-hdr-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 30px;
+  letter-spacing: 3px;
+  color: #0d1b3e;
+  line-height: 1;
+}
+.wc-hdr-title em {
+  color: #c0292a;
+  font-style: normal;
+}
+.wc-hdr-sub {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: rgba(13, 27, 62, 0.3);
+  text-transform: uppercase;
+  margin-top: 3px;
+}
+.wc-live-pill {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: #0d1b3e;
+  color: #f2ede2;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.wc-dot {
+  width: 6px;
+  height: 6px;
+  background: #e83535;
+  border-radius: 50%;
+  animation: wc-blink 1.2s infinite;
+}
+@keyframes wc-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.15;
+  }
+}
+
+/* ── PROGRESS STEPS ── */
+.wc-steps {
+  position: relative;
+  z-index: 20;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(13, 27, 62, 0.08);
+  background: rgba(255, 255, 255, 0.5);
+}
+.wc-step {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+}
+.wc-step-num {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+}
+.wc-step-num--done {
+  background: #2a6e3a;
+  color: #fff;
+}
+.wc-step-num--active {
+  background: #0d1b3e;
+  color: #f2ede2;
+}
+.wc-step-num--idle {
+  background: rgba(13, 27, 62, 0.08);
+  color: rgba(13, 27, 62, 0.35);
+}
+.wc-step-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.wc-step-label--done {
+  color: #2a6e3a;
+}
+.wc-step-label--active {
+  color: #0d1b3e;
+}
+.wc-step-label--idle {
+  color: rgba(13, 27, 62, 0.3);
+}
+.wc-step-line {
+  flex: 1;
+  height: 1.5px;
+  background: rgba(13, 27, 62, 0.1);
+  margin: 0 6px;
+}
+.wc-step-line--done {
+  background: #2a6e3a;
+}
+
+/* ── MAIN ── */
+.wc-main {
+  position: relative;
+  z-index: 20;
+  padding: 18px 24px;
+}
+
+/* ── SUMMARY CARD ── */
+.wc-sum-card {
+  background: #fff;
+  border: 1.5px solid rgba(13, 27, 62, 0.1);
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+.wc-sum-card-hdr {
+  padding: 12px 18px;
+  background: #0d1b3e;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 3px solid #c0292a;
+}
+.wc-sum-card-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 16px;
+  letter-spacing: 2px;
+  color: #f2ede2;
+}
+.wc-sum-card-badge {
+  background: rgba(212, 168, 68, 0.2);
+  border: 1px solid rgba(212, 168, 68, 0.4);
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #d4a844;
+  text-transform: uppercase;
+}
+
+/* ── SUMMARY ROWS ── */
+.wc-sum-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 11px 18px;
+  border-bottom: 1px solid rgba(13, 27, 62, 0.06);
+}
+.wc-sum-row:last-child {
+  border-bottom: none;
+}
+.wc-sum-row--highlight {
+  background: rgba(13, 27, 62, 0.02);
+}
+
+.wc-sum-key {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(13, 27, 62, 0.45);
+}
+.wc-sum-val {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #0d1b3e;
+  letter-spacing: 0.5px;
+}
+.wc-sum-val--red {
+  color: #c0292a;
+}
+.wc-sum-val--gold {
+  color: #d4a844;
+}
+
+/* Frame mini preview */
+.wc-frame-mini {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.wc-frame-mini-box {
+  width: 28px;
+  height: 36px;
+  border-radius: 4px;
+  background: #f2ede2;
+  border: 2px solid #0d1b3e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+/* ── EXTRA PRINT SELECT ── */
+.wc-extra-select {
+  appearance: none;
+  background: #fff;
+  border: 1.5px solid rgba(13, 27, 62, 0.2);
+  border-radius: 8px;
+  padding: 6px 28px 6px 10px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #0d1b3e;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%230d1b3e' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  min-width: 160px;
+  transition: border-color 0.15s;
+}
+.wc-extra-select:focus {
+  outline: none;
+  border-color: #0d1b3e;
+}
+.wc-extra-select:hover {
+  border-color: rgba(13, 27, 62, 0.4);
+}
+
+/* ── WC COLOR STRIPE ── */
+.wc-stripe {
+  display: flex;
+  height: 3px;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+.wc-stripe-navy {
+  flex: 3;
+  background: #1a3a6e;
+}
+.wc-stripe-green {
+  flex: 1.2;
+  background: #2a6e3a;
+}
+.wc-stripe-red {
+  flex: 0.8;
+  background: #c0292a;
+}
+
+/* ── TOTAL BLOCK ── */
+.wc-total-block {
+  background: #0d1b3e;
+  border-radius: 12px;
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  position: relative;
+  overflow: hidden;
+}
+.wc-total-block::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: #c0292a;
+}
+.wc-total-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(242, 237, 226, 0.5);
+  margin-bottom: 2px;
+}
+.wc-total-amount {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 32px;
+  letter-spacing: 2px;
+  color: #f2ede2;
+  display: block;
+}
+.wc-total-amount em {
+  font-style: normal;
+  color: #d4a844;
+}
+.wc-total-sub {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: rgba(242, 237, 226, 0.4);
+  text-transform: uppercase;
+  margin-top: 3px;
+}
+.wc-total-scoreboard {
+  text-align: right;
+}
+.wc-total-scoreboard-lbl {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: rgba(242, 237, 226, 0.3);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.wc-total-scoreboard-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  letter-spacing: 2px;
+  color: #d4a844;
+}
+.wc-total-scoreboard-detail {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: rgba(242, 237, 226, 0.4);
+  text-transform: uppercase;
+}
+
+/* ── CTA ROW ── */
+.wc-cta-row {
+  display: flex;
+  gap: 10px;
+}
+.wc-btn-back {
+  background: #fff;
+  border: 2px solid #0d1b3e;
+  color: #0d1b3e;
+  border-radius: 10px;
+  padding: 0 20px;
+  height: 52px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+.wc-btn-back:hover {
+  background: #0d1b3e;
+  color: #f2ede2;
+}
+
+.wc-btn-start {
+  flex: 1;
+  height: 52px;
+  background: #2a6e3a;
+  color: #fff;
+  border: 2px solid #2a6e3a;
+  border-radius: 10px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  letter-spacing: 3px;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+}
+.wc-btn-start:hover {
+  background: #1d5229;
+  border-color: #1d5229;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(42, 110, 58, 0.3);
+}
+.wc-btn-start:active {
+  transform: scale(0.98);
+}
+
+/* ── TICKER ── */
+.wc-ticker {
+  position: relative;
+  z-index: 20;
+  background: #0d1b3e;
+  padding: 8px 24px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border-top: 3px solid #c0292a;
+  margin-top: 16px;
+}
+.wc-ticker-lbl {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: #d4a844;
+  white-space: nowrap;
+}
+.wc-tick-div {
+  width: 1px;
+  height: 13px;
+  background: rgba(255, 255, 255, 0.18);
+}
+.wc-tick-item {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  color: rgba(242, 237, 226, 0.5);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.wc-tick-item strong {
+  color: #f2ede2;
+  font-weight: 800;
+}
