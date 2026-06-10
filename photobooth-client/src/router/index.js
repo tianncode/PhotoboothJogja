@@ -6,6 +6,8 @@ import Package from '@/pages/Package.vue'
 import Email from '@/pages/Email.vue'
 import Frame from '@/pages/Frame.vue'
 import Summary from '@/pages/Summary.vue'
+import Payment from '@/pages/Payment.vue'
+import PaymentQris from '@/pages/PaymentQris.vue'
 import Camera from '@/pages/Camera.vue'
 import Preview from '@/pages/Preview.vue'
 import Success from '@/pages/Success.vue'
@@ -38,6 +40,16 @@ const router = createRouter({
       path: '/summary',
       name: 'summary',
       component: Summary,
+    },
+    {
+      path: '/payment',
+      name: 'payment',
+      component: Payment,
+    },
+    {
+      path: '/payment-qris',
+      name: 'payment-qris',
+      component: PaymentQris,
     },
     {
       path: '/camera',

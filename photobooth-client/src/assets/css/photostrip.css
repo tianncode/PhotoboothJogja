@@ -1,0 +1,531 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;600&display=swap');
+
+/* ═══════════════════════════════════════════════════════════════
+   BASE — shared across all frames
+═══════════════════════════════════════════════════════════════ */
+.ps {
+  width: 420px;
+  margin: 0 auto;
+  display: block;
+  font-family: 'Bebas Neue', 'Barlow Condensed', sans-serif;
+  letter-spacing: 0.05em;
+}
+
+.ps__grid {
+  display: grid;
+  grid-template-columns: repeat(var(--ps-cols, 1), 1fr);
+  gap: 0;
+}
+
+.ps__slot {
+  position: relative;
+  aspect-ratio: var(--ps-ratio, 3/4);
+  overflow: hidden;
+}
+
+.ps__slot--full {
+  grid-column: 1 / -1;
+  aspect-ratio: 16/9;
+}
+
+.ps__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.ps__empty {
+  width: 100%;
+  height: 100%;
+  background: #ddd;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CLASSIC
+═══════════════════════════════════════════════════════════════ */
+.ps--classic {
+  background: #ffffff;
+  border: 3px solid #1a1a1a;
+  box-shadow: 4px 4px 0 #1a1a1a;
+}
+
+.ps__header--classic {
+  padding: 10px 14px;
+  border-bottom: 2px solid #1a1a1a;
+  display: flex;
+  align-items: center;
+}
+
+.ps__logo {
+  font-size: 11px;
+  font-family: 'Bebas Neue', monospace;
+  letter-spacing: 0.15em;
+  color: #1a1a1a;
+}
+
+.ps--classic .ps__slot {
+  border-bottom: 2px solid #1a1a1a;
+}
+
+.ps--classic .ps__slot:last-child {
+  border-bottom: none;
+}
+
+.ps--classic[data-count='4'] .ps__slot,
+.ps--classic[data-count='5'] .ps__slot,
+.ps--classic[data-count='6'] .ps__slot {
+  border-right: 2px solid #1a1a1a;
+  border-bottom: 2px solid #1a1a1a;
+}
+
+.ps--classic .ps__empty {
+  background: #f0f0f0;
+}
+
+.ps__footer--classic {
+  padding: 8px 14px;
+  border-top: 2px solid #1a1a1a;
+  display: flex;
+  justify-content: space-between;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: #555;
+  font-family: monospace;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   POLAROID
+═══════════════════════════════════════════════════════════════ */
+.ps--polaroid {
+  background: #f5f0e8;
+  padding: 16px 12px 8px;
+}
+
+.ps__grid--polaroid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.ps--polaroid[data-count='4'] .ps__grid--polaroid,
+.ps--polaroid[data-count='5'] .ps__grid--polaroid,
+.ps--polaroid[data-count='6'] .ps__grid--polaroid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.ps__card--polaroid {
+  background: #fff;
+  padding: 8px 8px 28px;
+  box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.18);
+  width: 85%;
+}
+
+.ps--polaroid[data-count='4'] .ps__card--polaroid,
+.ps--polaroid[data-count='5'] .ps__card--polaroid,
+.ps--polaroid[data-count='6'] .ps__card--polaroid {
+  width: 100%;
+}
+
+.ps__card--tilt-l {
+  transform: rotate(-1.5deg);
+}
+.ps__card--tilt-r {
+  transform: rotate(1.5deg);
+}
+
+.ps--polaroid[data-count='4'] .ps__card--polaroid,
+.ps--polaroid[data-count='5'] .ps__card--polaroid,
+.ps--polaroid[data-count='6'] .ps__card--polaroid {
+  transform: none;
+}
+
+.ps__card-photo {
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background: #e8e8e8;
+}
+
+.ps__card-caption {
+  padding: 6px 4px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ps__caption-line {
+  display: block;
+  width: 70%;
+  height: 1px;
+  background: #ccc;
+}
+
+.ps__footer--polaroid {
+  text-align: center;
+  padding: 10px 0 4px;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: #888;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FILM
+═══════════════════════════════════════════════════════════════ */
+.ps--film {
+  background: #1a1208;
+  color: #f5d060;
+}
+
+.ps__film-header,
+.ps__film-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 10px;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: #f5d060;
+  background: #0d0a04;
+}
+
+.ps__film-brand {
+  font-family: 'Courier New', monospace;
+}
+
+.ps__film-body {
+  display: flex;
+  align-items: stretch;
+}
+
+.ps__sprockets {
+  width: 16px;
+  background: #0d0a04;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 4px 0;
+  flex-shrink: 0;
+}
+
+.ps__sprocket {
+  width: 8px;
+  height: 8px;
+  background: #1a1208;
+  border: 1px solid #333;
+  border-radius: 1px;
+}
+
+.ps__grid--film {
+  flex: 1;
+  gap: 3px;
+  padding: 4px;
+  background: #1a1208;
+}
+
+.ps__slot--film {
+  position: relative;
+  background: #111;
+}
+
+.ps__film-num {
+  position: absolute;
+  top: 3px;
+  left: 4px;
+  font-size: 8px;
+  color: #f5d060;
+  font-family: 'Courier New', monospace;
+  z-index: 2;
+  line-height: 1;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 1px 2px;
+}
+
+.ps__empty--film {
+  background: #2a2010;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   VINTAGE
+═══════════════════════════════════════════════════════════════ */
+.ps--vintage {
+  background: #f0ead8;
+}
+
+.ps__vintage-border {
+  border: 6px double #b8a882;
+  margin: 0;
+}
+
+.ps__vintage-inner {
+  border: 1px solid #b8a882;
+  padding: 10px;
+}
+
+.ps__header--vintage {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0 10px;
+}
+
+.ps__vintage-title {
+  font-size: 13px;
+  letter-spacing: 0.3em;
+  color: #5c4a2a;
+  white-space: nowrap;
+}
+
+.ps__vintage-line {
+  flex: 1;
+  height: 1px;
+  background: #b8a882;
+}
+
+.ps--vintage .ps__grid {
+  gap: 8px;
+}
+
+.ps__slot--vintage {
+  padding: 4px;
+  background: #fff;
+  box-shadow: inset 0 0 0 1px #d4c8a0;
+}
+
+.ps__vintage-slot-border {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.ps__vintage-slot-border img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: sepia(15%);
+}
+
+.ps__footer--vintage {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 0 4px;
+}
+
+.ps__vintage-date {
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  color: #8a7250;
+  white-space: nowrap;
+  font-family: serif;
+  font-style: italic;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   STADIUM (WC2026)
+═══════════════════════════════════════════════════════════════ */
+.ps--stadium {
+  background: #0a1628;
+  color: #f5f0e0;
+}
+
+.ps__stadium-ribbon {
+  flex: 1;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    #c8102e 0%,
+    #c8102e 33%,
+    #f5f0e0 33%,
+    #f5f0e0 66%,
+    #007a53 66%
+  );
+}
+
+.ps__stadium-top,
+.ps__stadium-bottom {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+}
+
+.ps__stadium-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  white-space: nowrap;
+}
+
+.ps__stadium-eyebrow {
+  font-size: 7px;
+  letter-spacing: 0.25em;
+  color: #f5d060;
+}
+
+.ps__stadium-title {
+  font-size: 18px;
+  letter-spacing: 0.2em;
+  color: #f5f0e0;
+  line-height: 1;
+}
+
+.ps__grid--stadium {
+  gap: 3px;
+  padding: 0 8px;
+}
+
+.ps__slot--stadium {
+  position: relative;
+  border: 1px solid #2a3d5e;
+}
+
+.ps__empty--stadium {
+  background: #122040;
+}
+
+.ps__stadium-num {
+  position: absolute;
+  bottom: 4px;
+  right: 6px;
+  font-size: 9px;
+  color: rgba(245, 240, 224, 0.5);
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.1em;
+  line-height: 1;
+}
+
+.ps__stadium-footer-text {
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: #f5f0e0;
+  white-space: nowrap;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   MINIMAL
+═══════════════════════════════════════════════════════════════ */
+.ps--minimal {
+  background: #ffffff;
+}
+
+.ps__grid--minimal {
+  gap: 2px;
+  background: #e8e8e8;
+}
+
+.ps__slot--minimal {
+  background: #fff;
+}
+
+.ps__footer--minimal {
+  padding: 8px 12px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: #999;
+  border-top: 1px solid #e8e8e8;
+  font-family: monospace;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   NEON
+═══════════════════════════════════════════════════════════════ */
+.ps--neon {
+  background: #0d0d0d;
+  padding: 0;
+}
+
+.ps__neon-header {
+  padding: 10px 14px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.ps__neon-title {
+  font-size: 28px;
+  letter-spacing: 0.3em;
+  color: #00e5ff;
+  line-height: 1;
+}
+
+.ps__neon-sub {
+  font-size: 10px;
+  letter-spacing: 0.4em;
+  color: #555;
+}
+
+.ps__grid--neon {
+  gap: 4px;
+  padding: 0 8px;
+  background: #0d0d0d;
+}
+
+.ps__slot--neon {
+  position: relative;
+  background: #111;
+}
+
+.ps__empty--neon {
+  background: #1a1a1a;
+}
+
+.ps__neon-corner {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.ps__neon-corner--tl {
+  top: 3px;
+  left: 3px;
+  border-top: 2px solid #00e5ff;
+  border-left: 2px solid #00e5ff;
+}
+.ps__neon-corner--tr {
+  top: 3px;
+  right: 3px;
+  border-top: 2px solid #00e5ff;
+  border-right: 2px solid #00e5ff;
+}
+.ps__neon-corner--bl {
+  bottom: 3px;
+  left: 3px;
+  border-bottom: 2px solid #00e5ff;
+  border-left: 2px solid #00e5ff;
+}
+.ps__neon-corner--br {
+  bottom: 3px;
+  right: 3px;
+  border-bottom: 2px solid #00e5ff;
+  border-right: 2px solid #00e5ff;
+}
+
+.ps__neon-footer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+}
+
+.ps__neon-line {
+  flex: 1;
+  height: 1px;
+  background: #222;
+}
+
+.ps__neon-date {
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: #444;
+  font-family: monospace;
+  white-space: nowrap;
+}

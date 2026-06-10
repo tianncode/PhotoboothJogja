@@ -19,21 +19,22 @@ const retakePhoto = () => {
 
 const usePhoto = async () => {
   processing.value = true
-  try {
-    const strip = await generatePhotoStrip()
+  let strip
 
+  try {
+    strip = await generatePhotoStrip()
     downloadPhotoStrip(strip)
 
-    const response = await api.post('/send-photo', {
+    router.push('/success')
+
+    await api.post('/send-photo', {
       email: store.email,
       image: strip,
     })
-
-    console.log(response.data)
-
-    router.push('/success')
   } catch (error) {
     console.error(error)
+    if (!strip) return
+    router.push('/success')
   } finally {
     processing.value = false
   }

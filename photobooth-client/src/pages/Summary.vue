@@ -22,7 +22,7 @@ const updateExtraPrint = (value) => {
 
 const startPhoto = () => {
   store.setTotalPrice(finalTotal.value)
-  router.push('/camera')
+  router.push('/payment')
 }
 </script>
 
@@ -212,7 +212,7 @@ const startPhoto = () => {
               <circle cx="11" cy="11.5" r="3.8" stroke="white" stroke-width="1.8" />
               <path d="M8 5 L9.5 2.5 H12.5 L14 5" stroke="white" stroke-width="1.8" stroke-linejoin="round" />
             </svg>
-            MULAI FOTO
+            LANJUT BAYAR
           </button>
         </div>
 

@@ -1,0 +1,496 @@
+/* ============================================================
+   payment.css — Football / WC2026 Theme
+   Photobooth App — Stadium Booth
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;1,800&family=Barlow:wght@400;500&display=swap');
+
+/* ── ROOT ── */
+.wc-scene {
+  background: #f2ede2;
+  min-height: 100vh;
+  font-family: 'Barlow', sans-serif;
+  color: #0d1b3e;
+  position: relative;
+  overflow-x: hidden;
+}
+.bg-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+.bg-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ── HEADER ── */
+.wc-hdr {
+  position: relative;
+  z-index: 20;
+  padding: 18px 24px 14px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(13, 27, 62, 0.1);
+  background: rgba(242, 237, 226, 0.9);
+  backdrop-filter: blur(4px);
+}
+.wc-hdr-overline {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  color: rgba(13, 27, 62, 0.4);
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+.wc-hdr-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 30px;
+  letter-spacing: 3px;
+  color: #0d1b3e;
+  line-height: 1;
+}
+.wc-hdr-title em {
+  color: #c0292a;
+  font-style: normal;
+}
+.wc-hdr-sub {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: rgba(13, 27, 62, 0.3);
+  text-transform: uppercase;
+  margin-top: 3px;
+}
+.wc-live-pill {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: #0d1b3e;
+  color: #f2ede2;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.wc-dot {
+  width: 6px;
+  height: 6px;
+  background: #e83535;
+  border-radius: 50%;
+  animation: wc-blink 1.2s infinite;
+}
+@keyframes wc-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.15;
+  }
+}
+
+/* ── STEPS ── */
+.wc-steps {
+  position: relative;
+  z-index: 20;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(13, 27, 62, 0.08);
+  background: rgba(255, 255, 255, 0.5);
+}
+.wc-step {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.wc-step-num {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 11px;
+  flex-shrink: 0;
+}
+.wc-s-done {
+  background: #2a6e3a;
+  color: #fff;
+}
+.wc-s-active {
+  background: #0d1b3e;
+  color: #f2ede2;
+}
+.wc-s-idle {
+  background: rgba(13, 27, 62, 0.08);
+  color: rgba(13, 27, 62, 0.3);
+}
+.wc-step-lbl {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.wc-lbl-done {
+  color: #2a6e3a;
+}
+.wc-lbl-active {
+  color: #0d1b3e;
+}
+.wc-lbl-idle {
+  color: rgba(13, 27, 62, 0.3);
+}
+.wc-sline {
+  flex: 1;
+  height: 1.5px;
+  background: rgba(13, 27, 62, 0.1);
+  margin: 0 5px;
+}
+.wc-sline-done {
+  background: #2a6e3a;
+}
+
+/* ── ORDER BAR ── */
+.wc-order-bar {
+  position: relative;
+  z-index: 20;
+  margin: 14px 24px 0;
+  background: #0d1b3e;
+  border-radius: 12px;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-left: 4px solid #c0292a;
+}
+.wc-order-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: rgba(242, 237, 226, 0.4);
+  text-transform: uppercase;
+}
+.wc-order-pkg {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px;
+  letter-spacing: 2px;
+  color: #f2ede2;
+}
+.wc-order-detail {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: rgba(242, 237, 226, 0.4);
+  text-transform: uppercase;
+}
+.wc-order-total {
+  text-align: right;
+}
+.wc-order-total-lbl {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: rgba(242, 237, 226, 0.4);
+  text-transform: uppercase;
+}
+.wc-order-total-amt {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 26px;
+  letter-spacing: 1px;
+  color: #d4a844;
+}
+
+/* ── MAIN ── */
+.wc-main {
+  position: relative;
+  z-index: 20;
+  padding: 16px 24px;
+}
+
+.wc-section-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 3.5px;
+  color: rgba(13, 27, 62, 0.35);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.wc-section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(13, 27, 62, 0.1);
+}
+
+/* ── PAYMENT GRID ── */
+.wc-pay-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.wc-pay-card {
+  background: #fff;
+  border: 2px solid rgba(13, 27, 62, 0.1);
+  border-radius: 14px;
+  padding: 20px 18px;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.wc-pay-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: rgba(13, 27, 62, 0.1);
+  transition: background 0.2s;
+}
+.wc-pay-card:hover {
+  border-color: rgba(13, 27, 62, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(13, 27, 62, 0.1);
+}
+.wc-pay-card:hover::before {
+  background: #1a3a6e;
+}
+.wc-pay-active {
+  border-color: #0d1b3e !important;
+  box-shadow: 0 6px 20px rgba(13, 27, 62, 0.14);
+}
+.wc-pay-active::before {
+  background: #c0292a !important;
+}
+.wc-pay-disabled {
+  opacity: 0.42;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Check badge */
+.wc-pay-chk {
+  display: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 18px;
+  height: 18px;
+  background: #0d1b3e;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+}
+.wc-pay-active .wc-pay-chk {
+  display: flex;
+}
+
+/* Badges */
+.wc-pay-rec {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #2a6e3a;
+  color: #fff;
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.wc-pay-soon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(13, 27, 62, 0.1);
+  border: 1px solid rgba(13, 27, 62, 0.15);
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: rgba(13, 27, 62, 0.4);
+  text-transform: uppercase;
+}
+
+/* QRIS logo box */
+.wc-qris-logo {
+  margin-bottom: 10px;
+  background: #0d1b3e;
+  border-radius: 8px;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wc-qris-logo svg {
+  width: 34px;
+  height: 34px;
+}
+
+/* Emoji icon */
+.wc-pay-emoji {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.wc-pay-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  letter-spacing: 2px;
+  color: #0d1b3e;
+  margin-bottom: 4px;
+}
+.wc-pay-name--muted {
+  color: rgba(13, 27, 62, 0.4);
+}
+.wc-pay-desc {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: rgba(13, 27, 62, 0.42);
+  text-transform: uppercase;
+}
+
+/* ── WC COLOR STRIPE ── */
+.wc-stripe {
+  display: flex;
+  height: 3px;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+.wc-stripe-navy {
+  flex: 3;
+  background: #1a3a6e;
+}
+.wc-stripe-green {
+  flex: 1.2;
+  background: #2a6e3a;
+}
+.wc-stripe-red {
+  flex: 0.8;
+  background: #c0292a;
+}
+
+/* ── CTA ── */
+.wc-cta-row {
+  display: flex;
+  gap: 10px;
+}
+.wc-btn-back {
+  background: #fff;
+  border: 2px solid #0d1b3e;
+  color: #0d1b3e;
+  border-radius: 10px;
+  padding: 0 20px;
+  height: 52px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+.wc-btn-back:hover {
+  background: #0d1b3e;
+  color: #f2ede2;
+}
+.wc-btn-pay {
+  flex: 1;
+  height: 52px;
+  background: #0d1b3e;
+  color: #f2ede2;
+  border: 2px solid #0d1b3e;
+  border-radius: 10px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  letter-spacing: 3px;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.wc-btn-pay:hover {
+  background: #1a3a6e;
+  border-color: #1a3a6e;
+  transform: translateY(-1px);
+}
+.wc-btn-pay:active {
+  transform: scale(0.98);
+}
+
+/* ── TICKER ── */
+.wc-ticker {
+  position: relative;
+  z-index: 20;
+  background: #0d1b3e;
+  padding: 8px 24px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border-top: 3px solid #c0292a;
+  margin-top: 16px;
+}
+.wc-ticker-lbl {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: #d4a844;
+  white-space: nowrap;
+}
+.wc-tick-div {
+  width: 1px;
+  height: 13px;
+  background: rgba(255, 255, 255, 0.18);
+}
+.wc-tick-item {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  color: rgba(242, 237, 226, 0.5);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.wc-tick-item strong {
+  color: #f2ede2;
+  font-weight: 800;
+}
